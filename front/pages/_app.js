@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import AppLayout from "../components/AppLayout";
 
-const Home = () => {
+const NodeBird = ({ Component }) => {
   return (
     <>
       <Head>
@@ -15,10 +15,10 @@ const Home = () => {
         />
       </Head>
       <AppLayout>
-        <div>Hello, Next!</div>
+        <Component />
       </AppLayout>
     </>
   );
 };
 
-export default Home;
+export default NodeBird;
