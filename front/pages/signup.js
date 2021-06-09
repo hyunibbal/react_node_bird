@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { Form, Input, Checkbox, Button } from "antd";
 
+export const useInput = (initValue = null) => {
+  const [value, setter] = useState(initValue);
+  const handler = (e) => {
+    setter(e.target.value);
+  };
+  return [value, handler];
+};
+
 const Signup = () => {
+  const [id, onChangeId] = useInput("");
   const [nick, setNick] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
@@ -46,16 +55,6 @@ const Signup = () => {
     setTermError(false);
     setTerm(e.target.checked);
   };
-
-  const useInput = (initValue = null) => {
-    const [value, setter] = useState(initValue);
-    const handler = (e) => {
-      setter(e.target.value);
-    };
-    return [value, handler];
-  };
-
-  const [id, onChangeId] = useInput("");
 
   return (
     <Form onSubmit={onSubmit} style={{ padding: 10 }}>
